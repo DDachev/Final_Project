@@ -1,0 +1,17 @@
+<header>Get book information by ID</header>
+<main>
+    <div style="padding: 10px">
+        <span> Insert book information ID </span>
+        <input [(ngModel)]="bookInfo.id">
+        <p></p>
+        <button mat-raised-button color="primary" (click)="getById(bookInfo.id)">Get book info</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+</main>
+<div class="container" *ngIf="isClickedGet">
+    <h1></h1>
+    <p>Author: {{bookInfo.author}}</p>
+    <p>Genre: {{bookInfo.genre}}</p>
+    <p>Pages: {{bookInfo.pages}}</p>
+    <p>Year of publishing: {{bookInfo.yearOfPublishing}}</p>
+</div>

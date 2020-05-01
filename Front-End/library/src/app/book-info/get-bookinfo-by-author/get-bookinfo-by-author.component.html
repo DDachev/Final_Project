@@ -1,0 +1,32 @@
+<header>Get books information by author</header>
+<div>
+    <div style="padding: 10px">
+        <span> Insert name of author </span>
+        <input [(ngModel)]="nameOfAuthor">
+        <p></p>
+        <button mat-raised-button color="primary" (click)="getByAuthor(nameOfAuthor)">Get books info</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+    <div *ngIf="isClickedGet">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Pages</th>
+                    <th>Year of publishing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bookInfo of booksInfo">
+                    <td><strong>{{bookInfo.id}}</strong></td>
+                    <td>{{bookInfo.author}}</td>
+                    <td>{{bookInfo.genre}}</td>
+                    <td>{{bookInfo.pages}}</td>
+                    <td>{{bookInfo.yearOfPublishing}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

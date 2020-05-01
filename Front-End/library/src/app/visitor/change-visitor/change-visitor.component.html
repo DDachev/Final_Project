@@ -1,0 +1,54 @@
+<header>Change visitor</header>
+<main>
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Library data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type library's ID, visitor's ID
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Library's ID</mat-label>
+                    <mat-select (mousedown)="getAllLibraries()">
+                        <mat-option *ngFor="let l of libraries" [value]="l" (click)="addLibraryId(l.id)"> {{ l.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Visitor's ID</mat-label>
+                    <mat-select (mousedown)="getAllVisitorsFromLibrary()" [(ngModel)]="visitor.id">
+                        <mat-option *ngFor="let visitor of visitors" [value]="visitor.id"
+                            (click)="addVisitorId(visitor.id)"> {{ visitor.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Information for visitor
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type name and age of visitor
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Name of visitor</mat-label>
+                    <input matInput [(ngModel)]="visitor.name" required type="string" minlength="3" maxlength="40">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Age of visitor</mat-label>
+                    <input matInput [(ngModel)]="visitor.age" type="number" required min="10" max="120">
+                </mat-form-field>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="change()">Change visitor</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+</main>

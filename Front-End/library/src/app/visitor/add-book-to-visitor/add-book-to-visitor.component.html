@@ -1,0 +1,46 @@
+<header>Add book to visitor to read it</header>
+<main>
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Visitor get a book to read it
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type library's ID, visitor's ID and book's ID
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Library's ID</mat-label>
+                    <mat-select (mousedown)="getAllLibraries()">
+                        <mat-option *ngFor="let l of libraries" [value]="l" (click)="addLibraryId(l.id)">
+                            {{ l.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Visitor's ID</mat-label>
+                    <mat-select (mousedown)="getAllVisitorsFromLibrary()">
+                        <mat-option *ngFor="let v of visitors" [value]="v" (click)="addVisitorId(v.id)">
+                            {{ v.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Book's ID</mat-label>
+                    <mat-select (mousedown)="getAllBooks()">
+                        <mat-option *ngFor="let b of books" [value]="b" (click)="addBookId(b.id)">
+                            {{ b.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-expansion-panel>
+            <h1></h1>
+            <div>
+                <button mat-raised-button color="primary" (click)="addBook()">Add book to visitor</button>
+                <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+            </div>
+        </mat-accordion>
+    </div>
+</main>

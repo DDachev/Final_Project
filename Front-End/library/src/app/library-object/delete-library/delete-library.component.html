@@ -1,0 +1,21 @@
+<header>Delete library</header>
+<main>
+  <div>
+    <h4>Select the library you want to delete</h4>
+    <mat-form-field>
+      <mat-select (mouseover)="getAll()" [(ngModel)]="library">
+        <mat-option *ngFor="let lib of libraries" [value]="lib"> {{ lib.id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h1></h1>
+    <div>
+      <button mat-raised-button color="primary" (click)="delete()">Delete</button>
+      <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+    <div *ngIf="isDeleted">
+      <p> Deleted library was with ID: {{library.id}}</p>
+    </div>
+    <h1></h1>
+  </div>
+</main>

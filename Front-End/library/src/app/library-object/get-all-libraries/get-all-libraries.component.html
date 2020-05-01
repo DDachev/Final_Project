@@ -1,0 +1,22 @@
+<header>Get all libraries</header>
+<main>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name of Library</th>
+                    <th>Year of construction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lib of libraries">
+                    <td><strong>{{lib.id}}</strong></td>
+                    <td>{{lib.name}}</td>
+                    <td>{{lib.yearOfConstruction}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+</main>

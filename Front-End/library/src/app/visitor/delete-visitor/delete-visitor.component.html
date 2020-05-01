@@ -1,0 +1,28 @@
+<header>Delete visitor</header>
+<main>
+    <div>
+        <h4>Select the visitor you want to delete from library</h4>
+        <mat-form-field>
+            <mat-label>Library's ID</mat-label>
+            <mat-select (mousedown)="getAllLibraries()">
+                <mat-option *ngFor="let l of libraries" [value]="l" (click)="addLibraryId(l.id)"> {{ l.id }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Visitor's ID</mat-label>
+            <mat-select (mousedown)="getAllVisitorsFromLibrary()" [(ngModel)]="visitor.id">
+                <mat-option *ngFor="let visitor of visitors" [value]="visitor.id" (click)="addVisitorId(visitor.id)">
+                    {{ visitor.id }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button color="primary" (click)="delete()">Delete visitor</button>
+            <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+        </div>
+        <div *ngIf="isClickedDelete">
+            <p> Deleted visitor was with ID: {{visitor.id}}</p>
+        </div>
+    </div>
+</main>

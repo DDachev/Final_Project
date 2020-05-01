@@ -1,0 +1,36 @@
+<header>Get all books from library</header>
+<div>
+  <div style="padding: 10px">
+    <span> Insert library's ID </span>
+    <input [(ngModel)]="book.libraryId">
+    <p></p>
+    <button mat-raised-button color="primary" (click)="getAll()">Get all books from library</button>
+    <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+  </div>
+  <div *ngIf="isClickedGetAll">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name of Book</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Pages</th>
+          <th>Year of publishing</th>
+          <th>Book Info's ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td><strong>{{book.id}}</strong></td>
+          <td>{{book.nameOfBook}}</td>
+          <td>{{book.bookInfo.author}}</td>
+          <td>{{book.bookInfo.genre}}</td>
+          <td>{{book.bookInfo.pages}}</td>
+          <td>{{book.bookInfo.yearOfPublishing}}</td>
+          <td>{{book.bookInfo.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

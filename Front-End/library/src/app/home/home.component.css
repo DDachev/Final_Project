@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .wrapper > * {
+    margin-block-start: 200px;
+    margin-inline-start: 300px;
+    margin-inline-end: 300px;
+    padding: 20px;
+    flex: 1 80%;    
+  }
+  
+  .header {
+    background: rgb(255, 255, 255);
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;    
+  }
+  
+  .main {
+    text-align: left;
+    background: rgb(255, 255, 255);
+  }
+  
+  @media all and (min-width: 800px) {
+    .main    { flex: 3 0px; }
+    .main    { order: 2; }
+  }
+  
+  body {
+    padding: 2em; 
+  }
+
+
+
+
+  

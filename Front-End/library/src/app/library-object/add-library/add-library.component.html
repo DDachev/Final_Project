@@ -1,0 +1,52 @@
+<header>Add library</header>
+<main>
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Library data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type Library's name, year of construction and address
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Name of Library</mat-label>
+                    <input matInput [(ngModel)]="library.name" required type="string" minlength="3" maxlength="50">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Year of construction</mat-label>
+                    <input matInput [(ngModel)]="library.yearOfConstruction" required type="number" min="1000"
+                        max="2020">
+                </mat-form-field>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Library's address
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type Library's address
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput type="string" required minlength="2" maxlength="25" [(ngModel)]="address.city">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Number of street</mat-label>
+                    <input matInput type="number" required min="1" [(ngModel)]="address.number">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Street</mat-label>
+                    <input matInput type="string" required minlength="2" maxlength="40" [(ngModel)]="address.street">
+                </mat-form-field>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="add()">Save Library</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+</main>

@@ -1,0 +1,39 @@
+<header>Add visitor in library</header>
+<main>
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Visitor data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type library's ID, name and age of visitor
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Library's ID</mat-label>
+                    <mat-select (mousedown)="getAllLibraries()">
+                        <mat-option *ngFor="let lib of libraries" [value]="lib" (click)="addLibraryId(lib.id)">
+                            {{ lib.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <h1></h1>
+                <mat-form-field>
+                    <mat-label>Name of visitor</mat-label>
+                    <input matInput [(ngModel)]="visitor.name" required type="string" minlength="3" maxlength="40">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Age of visitor</mat-label>
+                    <input matInput [(ngModel)]="visitor.age" required type="number" min="10" max="120">
+                </mat-form-field>
+            </mat-expansion-panel>
+            <h1></h1>
+            <div>
+                <button mat-raised-button color="primary" (click)="add()">Save visitor</button>
+                <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+            </div>
+        </mat-accordion>
+    </div>
+</main>

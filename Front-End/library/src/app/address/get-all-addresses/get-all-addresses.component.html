@@ -1,0 +1,24 @@
+<header>Get all addresses</header>
+<main>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>City</th>
+          <th>Street</th>
+          <th>Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let address of addresses">
+          <td><strong>{{address.id}}</strong></td>
+          <td>{{address.city}}</td>
+          <td>{{address.street}}</td>
+          <td>{{address.number}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+  </div>
+</main>

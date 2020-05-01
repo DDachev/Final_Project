@@ -1,0 +1,35 @@
+<header>Get visitors by age</header>
+<div>
+    <div style="padding: 10px">
+        <mat-form-field>
+            <mat-label>Library's ID</mat-label>
+            <mat-select (mousedown)="getAllLibraries()">
+                <mat-option *ngFor="let l of libraries" [value]="l" (click)="addLibraryId(l.id)"> {{ l.id }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span> Insert age of visitor </span>
+        <input [(ngModel)]="visitor.age">
+        <p></p>
+        <button mat-raised-button color="primary" (click)="getVisitorsByAge()">Get all visitors</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+    <div *ngIf="isClickedGet">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name of visitor</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let visitor of visitors">
+                    <td><strong>{{visitor.id}}</strong></td>
+                    <td>{{visitor.name}}</td>
+                    <td>{{visitor.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

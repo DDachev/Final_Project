@@ -1,0 +1,14 @@
+<header>Get address by ID</header>
+<main>
+  <div style="padding: 10px">
+    <span> Insert address ID </span>
+    <input [(ngModel)]="address.id">
+    <p></p>
+    <button mat-raised-button color="primary" (click)="get()">Get address</button>
+    <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    <h1></h1>
+    <div *ngIf="isGet">
+      <p>The address is: {{address.city}}, {{address.number}}, {{address.street}}</p>
+    </div>
+  </div>
+</main>

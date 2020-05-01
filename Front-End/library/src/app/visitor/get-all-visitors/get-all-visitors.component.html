@@ -1,0 +1,29 @@
+<header>Get all visitors from library</header>
+<div>
+    <div style="padding: 10px">
+        <span> Insert library's ID </span>
+        <input [(ngModel)]="libraryId">
+        <p></p>
+        <button mat-raised-button color="primary" (click)="getAllVisitorsFromLibrary()">Get all visitors from
+            library</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+    </div>
+    <div *ngIf="isClickedGet">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name of visitor</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let visitor of visitors">
+                    <td><strong>{{visitor.id}}</strong></td>
+                    <td>{{visitor.name}}</td>
+                    <td>{{visitor.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

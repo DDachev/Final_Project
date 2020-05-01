@@ -1,0 +1,14 @@
+<header>Get library by ID</header>
+<main>
+    <div style="padding: 10px">
+        <span> Insert library ID </span>
+        <input [(ngModel)]="library.id">
+        <p></p>
+        <button mat-raised-button color="primary" (click)="getById()">Get library</button>
+        <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+        <h1></h1>
+        <div *ngIf="isClickedGet">
+            <p>The name of library is: {{library.name}}</p>
+        </div>
+    </div>
+</main>

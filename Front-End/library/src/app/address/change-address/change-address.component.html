@@ -1,0 +1,41 @@
+<header>Change address</header>
+<main>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Address data
+          </mat-panel-title>
+          <mat-panel-description>
+            Type address's ID, city, number, street
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Address's ID</mat-label>
+          <mat-select (mousedown)="getAll()">
+            <mat-option *ngFor="let address of addresses" [value]="address" (click)="addAddressId(address.id)">
+              {{ address.id }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput [(ngModel)]="address.city" required type="string" minlength="2" maxlength="25">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Number</mat-label>
+          <input matInput [(ngModel)]="address.number" type="number" required min="1">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput [(ngModel)]="address.street" required type="string" minlength="2" maxlength="40">
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="change()">Change address</button>
+    <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+  </div>
+</main>

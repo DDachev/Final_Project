@@ -1,0 +1,40 @@
+<header>Delete book</header>
+<main>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Delete book
+          </mat-panel-title>
+          <mat-panel-description>
+            Type library's ID and book's ID
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Select library's ID</mat-label>
+          <mat-select (mousedown)="getAllLibraries()" [(ngModel)]="book.libraryId">
+            <mat-option *ngFor="let lib of libraries" [value]="lib" (click)="addLibraryId(lib.id)"> {{ lib.id }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select book's ID</mat-label>
+          <mat-select (mousedown)="getAllBooks()" [(ngModel)]="book.id">
+            <mat-option *ngFor="let book of books" [value]="book.id"> {{ book.id }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <h1></h1>
+        <div>
+          <button mat-raised-button color="primary" (click)="delete()">Delete</button>
+          <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+        </div>
+        <div *ngIf="isDeleted">
+          <p> Deleted book was with ID: {{book.id}}</p>
+        </div>
+        <h1></h1>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</main>

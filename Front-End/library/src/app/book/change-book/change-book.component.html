@@ -1,0 +1,66 @@
+<header>Change book</header>
+<main>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Book data
+          </mat-panel-title>
+          <mat-panel-description>
+            Type book's ID, name of book, library's id and information for book
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Library's ID</mat-label>
+          <mat-select (mousedown)="getAllLibraries()" [(ngModel)]="book.libraryId">
+            <mat-option *ngFor="let l of libraries" [value]="l" (click)="addLibraryId(l.id)"> {{ l.id }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Book's ID</mat-label>
+          <mat-select (mousedown)="getAllBooks()" [(ngModel)]="book.id">
+            <mat-option *ngFor="let book of books" [value]="book.id" (click)="addBookId(book.id)"> {{ book.id }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Name of Book</mat-label>
+          <input matInput [(ngModel)]="book.nameOfBook" required type="string" minlength="3" maxlength="50">
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Information for book
+          </mat-panel-title>
+          <mat-panel-description>
+            Type author, genre, pages and year of publishing
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Author</mat-label>
+          <input matInput (mousedown)="getBookInfo(book.id)" [(ngModel)]="bookInfo.author" type="string" required
+            minlength="3" maxlength="40">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <input matInput [(ngModel)]="bookInfo.genre" type="string" required minlength="3" maxlength="30">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Pages</mat-label>
+          <input matInput [(ngModel)]="bookInfo.pages" type="number" required min="3">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Year of publishing</mat-label>
+          <input matInput [(ngModel)]="bookInfo.yearOfPublishing" type="number" required min="100" max="2020">
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="change()">Change book</button>
+    <button mat-raised-button color="primary" (click)="onBack()">Back</button>
+  </div>
+</main>
